@@ -1,0 +1,57 @@
+<html>
+<title></title>
+
+<style>
+.container{
+position:absolute;
+background:#000;
+border:6px;
+width:400px;
+height:400px;
+margin-left:250px;
+margin-top:50px;
+}
+
+#content{
+width:350px;
+margin-left:25px;
+margin-top:25px;
+background:#fff;
+height: 350px;
+}
+
+#start{
+background:#f00;
+margin-top:360px;
+}
+
+#end{
+background:#f00;
+}
+</style>
+
+<div class='container'>
+	<div id='content'></div>
+</div>
+
+<button id='start'>Start</button>
+<button id='end'>End</button>
+
+<script>
+window.onload=function(){
+	var btn_start = document.getElementById('start');
+
+	btn_start.onclick=function(){
+		this.style.display='none'
+	}
+
+	var btn_end = document.getElementById('end');
+
+	btn_end.onclick=function(){
+		btn_start.style.display='block'
+	}
+
+
+}
+</script>
+</html>

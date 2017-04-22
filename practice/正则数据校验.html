@@ -1,0 +1,41 @@
+<html>
+<title="正则校验"></title>
+<body>
+<center>
+  <input type="text" id="inputmail"></input><br><br>
+  <input type="password" id="inputpass"></input><br>
+
+  <input type="button" id="button" value="校验"></input>
+</center>
+  <script>
+window.onload=function(){
+  var mail=document.getElementById("inputmail");
+  var pass=document.getElementById("inputpass");
+  var button=document.getElementById("button");
+
+  var mailReg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+  var passReg=/^\d{6}$/;
+  var spaceReg=/(^\s*)|(\s*$)/g ;
+
+  button.onclick = function(){
+  //  alert(data.value);
+    var cc=mail.value;
+    var bb=pass.value;
+    var newMail = cc.replace(spaceReg,'');
+    var newPass = bb.replace(spaceReg,'');
+    alert("Email-->" + mailReg.test(newMail)+"\r\n"+"Pass-->" + passReg.test(newPass));
+
+    //alert(newData);
+    //alert(cc);
+  }
+
+
+
+
+
+
+}
+
+  </script>
+</body>
+</html>

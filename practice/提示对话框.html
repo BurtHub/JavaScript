@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>提示对话框</title>
+	<style>
+  #start{
+    background: #000;
+    color: red;
+    height: 80px;
+    width: 100px;
+    
+  }
+  #end{
+    background: #000;
+    color: red;
+    height: 80px;
+    width: 100px;
+  }
+	</style>
+</head>
+<body>
+  <span id='start'>Start</span>
+  <span id='end'>End</span>
+
+
+<script>
+	window.onload = function(){
+
+var btStart = document.getElementById('start');
+var btEnd = document.getElementById('end');
+  /*mbutton.onclick = function(){
+    alert('click2....');
+  }*/
+
+
+  //推荐使用事件监听方式
+  var event='click';
+  var intervalId;
+  btEnd.addEventListener(event,myEnd)
+  btStart.addEventListener(event,myStart);
+  function myStart(){
+    //alert('click3....');
+  //  setTimeout(myTime,2000);
+    intervalId = setInterval(myTime,1000);
+  }
+  function myEnd(){
+    clearInterval(intervalId);
+  }
+
+  function myTime(){
+    alert('成功延时两秒....');
+  }
+
+	}
+
+
+</script>
+</body>
+</html>

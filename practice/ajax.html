@@ -1,0 +1,21 @@
+<html>
+<title></title>
+<body>
+  <button id = "button">Read</button>
+
+  <script src="js/ajax.js"></script>
+  <script>
+window.onload = function(){
+var btn = document.getElementById('button');
+var url = 'http://192.168.0.113/ajax-study/test.txt';
+  btn.onclick = function(){
+    ajax(url,function(result){
+      console.log(result); },function(result){});
+  }
+
+}
+
+
+  </script>
+</body>
+</html>

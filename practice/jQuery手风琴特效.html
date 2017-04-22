@@ -1,0 +1,71 @@
+<html>
+<title></title>
+<style>
+.key:nth-child(odd){
+	height: 80px;
+	width: 140px;
+	/*margin-top: 20px;*/
+	background-color: red;
+  overflow: hidden;
+}
+.key:nth-child(even){
+	height: 80px;
+	width: 140px;
+	/*margin-top: 20px;*/
+	background-color: black;
+  overflow: hidden;
+}
+ul{
+	display: none;
+	color:orange;
+	float: left;
+	list-style: none;
+}
+</style>
+<script src='js/jquery-1.8.3.min.js'></script>
+
+<div id='total'>
+<div class='key'>
+	<ul>
+			<li>Coffee</li>
+			<li>Milk</li>
+	</ul>
+</div>
+
+	<div class='key'>
+		<ul>
+			<li>DianXin</li>
+			<li>DanGao</li>
+		</ul>
+	</div>
+
+	<div class='key'>
+		<ul>
+			<li>NaiCha</li>
+			<li>Kele</li>
+		</ul>
+	</div>
+
+</div>
+<script>
+
+$(function($) {
+
+//css选择器，分组选择器
+	var divArr = $('#total div');  //div 分组
+	var ulArr = $('#total ul');		//ul 分组
+
+	divArr.bind("click", function(){
+				var i = divArr.index($(this));//alert(i);
+				ulArr.slideUp("normal" , function(){ //操作本数组除当前元素外的元素
+					var j = ulArr.index($(this));//alert(j);
+							if(i == j){
+							$(this).slideDown('normal');
+							}
+					});
+	});
+
+});
+
+</script>
+</html>

@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <script src='js/jquery-1.8.3.min.js'></script>
+        <style>
+        li{
+        position: absolute;
+        height: 100%
+        width: 100%
+        list-style:none;
+        }
+
+        #prev-btn{
+        position: absolute;
+    		left:0;
+    		top:200px;
+    		background:url(img/prev-btn.png) no-repeat;
+    	 }
+    	#next-btn{
+        position: absolute;
+    		right:0;
+    		top:200px;
+    		background:url(img/next-btn.png) no-repeat;
+    	 }
+        </style>
+    </head>
+
+    <body>
+
+
+        <div id="layout">
+            <header  class="clearfix">
+                <div id="banner">
+                <img src = "./img/prev-btn.png" id = "prev-btn"/>
+                <img src = "./img/next-btn.png" id = "next-btn"/>
+                    <ul id="banner_img">
+                        <li><a href="javascript:void(0);"><img src="./img/slide-img1.jpg"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="./img/slide-img2.jpg"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="./img/slide-img3.jpg"/></a></li>
+                        <li><a href="javascript:void(0);"><img src="./img/slide-img4.jpg"/></a></li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+
+  <!-- *************************js*********************************** -->
+
+    <script>
+        $(function($) {
+
+          function initPage(temp){
+            allLinks.each(function(i){
+              var t = allLinks.index($(this));
+              if (t != temp) {$(this).hide();} else {$(this).show();}
+            });
+          }
+
+          // 全局变量
+          var timeId = null;
+          var allLinks = $('#banner_img').children();
+          var linksSize = allLinks.length;
+          var nowPage=0;
+
+          initPage(0);
+          autoPlay();
+
+          $("#next-btn").bind("click", function(){
+            var temp = Math.abs((nowPage++)%linksSize); // console.log(temp);
+            initPage(temp);
+          });
+
+          $("#prev-btn").bind("click", function(){
+            var temp = Math.abs((nowPage--)%linksSize);//console.log(temp);
+            initPage(temp);
+          });
+
+          function autoPlay(){
+            timeId = setInterval(function(){
+              var temp = Math.abs((nowPage++)%linksSize);
+              initPage(temp);
+            }, 2000);
+          }
+
+          $("#layout").hover(
+            function () {clearInterval(timeId);},
+            function () {autoPlay();}
+          );
+
+        });
+
+
+        /***********************逻辑规划*************************
+          1.自动播放使用定时器
+          2.切换逻辑，直接取模数组长度 取模符号 % ，大致语言和C类似
+          3.判断最大值和取模的效率比较 哪个更快
+          4.循环队列播放效果，最后一页的时候显示第一页，第一页的时候显示最后一页
+          5.初始化，每次屏幕只能保留一个图片，没用的元素进行隐藏
+          6.使用css3画出小圆点
+          7.数据算法，下一页按钮循环产生产生0123，上一页数据循环产生3210
+          8.可根据数据标签的数据下标获得特定元素序列
+        ***********************逻辑规划**************************/
+
+    </script>
+    <!-- **************************js********************************** -->
+    </body>
+</html>

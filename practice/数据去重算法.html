@@ -1,0 +1,27 @@
+<html>
+<title>数组去重</title>
+<body></body>
+<script>
+window.onload=function(){
+var arr = ['1','2','3','1','2','3','1','2','3','1','7','3'];
+var arrNew = [];
+  arrNew.push(arr[0]);
+for (var i = 0; i < arr.length; i++) {
+    var flag = 0;
+  for (var j = 0; j < arrNew.length; j++) {
+      if(arrNew[j] == arr[i]){
+        flag = 1;
+      }
+  }
+  if(flag == 0){
+    arrNew.push(arr[i]);
+    //alert("arrNewAdd");
+  }
+}
+alert("arrNew"+arrNew.length);
+
+
+}
+</script>
+
+<html>

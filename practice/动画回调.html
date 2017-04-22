@@ -1,0 +1,49 @@
+<html>
+<title></title>
+<style>
+#key:nth-child(odd){
+	height: 80px;
+	width: 140px;
+	/*margin-top: 20px;*/
+	background-color: red;
+  overflow: hidden;
+}
+#key:nth-child(even){
+	height: 80px;
+	width: 140px;
+	/*margin-top: 20px;*/
+	background-color: black;
+  overflow: hidden;
+}
+ul{
+	display: none;
+	color:orange;
+	float: left;
+	list-style: none;
+}
+</style>
+<script src='js/jquery-1.8.3.min.js'></script>
+<button id='start'>Start</button>
+<button id='end'>End</button>
+<div id='total'>
+
+<div id='key'>
+
+</div>
+
+<script>
+
+$(function($) {
+  $("#start").bind("click", function(){
+    alert('1');
+    $("#key").animate({
+    width: "90%",
+    height: "100%",
+    fontSize: "10em",
+    borderWidth: 10
+  }, 1000 );
+
+  });
+});
+</script>
+</html>
